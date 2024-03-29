@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:phone_app/components/see_password_toggle_icon.dart';
 import 'package:phone_app/utilities/constants.dart';
 import 'package:phone_app/pages/login.dart';
 import 'package:phone_app/components/text_tap_button.dart';
@@ -98,13 +99,29 @@ class SignUpPage extends StatelessWidget {
                   style: kRedbackTextMain,
                 ),
                 SizedBox(height: 32),
-                InputTextField(buttonText: 'username'),
+                InputTextField(
+                  buttonText: 'username',
+                  fieldController: usernameController,
+                  // don't toggle, just visible
+                ),
                 SizedBox(height: 15),
-                InputTextField(buttonText: 'email'),
+                InputTextField(
+                  buttonText: 'email',
+                  fieldController: emailController,
+                  // don't toggle, just visible
+                ),
                 SizedBox(height: 15),
-                InputTextField(buttonText: 'password'),
+                InputTextField(
+                  buttonText: 'password',
+                  fieldController: passwordController,
+                  enableToggle: true, // toggle visibility
+                ),
                 SizedBox(height: 15),
-                InputTextField(buttonText: 'confirm password'),
+                InputTextField(
+                  buttonText: 'confirm password',
+                  fieldController: confirmPasswordController,
+                  enableToggle: true, // toggle visibility
+                ),
                 SizedBox(height: 60),
                 BottomButton(
                     onTap: () {
