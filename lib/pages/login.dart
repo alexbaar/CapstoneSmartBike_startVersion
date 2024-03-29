@@ -25,63 +25,68 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: CustomGradientContainerFull(
-        child: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SafeArea(
-                child: Center(
-                  child: Column(
-                    children: [
-                      // Redback Logo
-                      const Image(
-                        image: AssetImage('lib/assets/redbacklogo.png'),
-                        height: 150,
-                      ),
-                      // App Name
-                      const Text(
-                        "Redback Smart Bike",
-                        style: kRedbackTextMain,
-                      ),
-                      SizedBox(height: 70),
-                      InputTextField(buttonText: 'email'),
+      body: SingleChildScrollView(
+        child: CustomGradientContainerFull(
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 30.0),
+                Column(
+                  children: [
+                    // Redback Logo
+                    const Image(
+                      image: AssetImage('lib/assets/redbacklogo.png'),
+                      height: 150,
+                    ),
+                    // App Name
+                    const Text(
+                      "Redback Smart Bike",
+                      style: kRedbackTextMain,
+                    ),
+                    SizedBox(height: 70),
+                    InputTextField(
+                      buttonText: 'email',
+                    ),
 
-                      SizedBox(height: 15),
-                      InputTextField(buttonText: 'password'),
-                      SizedBox(height: 70),
-                      BottomButton(
-                          onTap: () {
-                            // login logic
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(
-                                  title: '',
-                                ),
+                    SizedBox(height: 15),
+                    InputTextField(
+                      buttonText: 'password',
+                      enableToggle: true,
+                    ),
+                    SizedBox(height: 70),
+                    BottomButton(
+                        onTap: () {
+                          // login logic
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(
+                                title: '',
                               ),
-                            );
-                          },
-                          buttonText: 'Log In'),
-                      SizedBox(height: 26),
-                      TextTapButton(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SignUpPage(),
-                              ),
-                            );
-                          },
-                          buttonTextStatic: 'Don\'t have an account?  ',
-                          buttonTextActive: 'Sign up'),
-                    ],
-                  ),
+                            ),
+                          );
+                        },
+                        buttonText: 'Log In'),
+                    SizedBox(height: 25),
+                    TextTapButton(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignUpPage(),
+                            ),
+                          );
+                        },
+                        buttonTextStatic: 'Don\'t have an account?  ',
+                        buttonTextActive: 'Sign up'),
+                    SizedBox(height: 25),
+                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
